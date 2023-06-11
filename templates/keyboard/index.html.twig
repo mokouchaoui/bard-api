@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Keyboard{% endblock %}
+
+{% block body %}
+    
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>Product Description Generator Bard AI</h1>
+            {{ form_start(form, {'attr': {'class': 'mt-4'}}) }}
+
+            <div class="form-group">
+                {{ form_label(form.keyboard, 'Keyboard') }}
+                {{ form_widget(form.keyboard, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.language, 'Language') }}
+                {{ form_widget(form.language, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <br>
+            {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+
+            {{ form_end(form) }}
+
+            {% if capitalizedText is defined %}
+                <div class="mt-4 card">
+                    <div class="card-body">
+                        <h4 class="card-title">Product Description:</h4>
+                        <div class="product-description">
+                            {{ capitalizedText|replace({'*': ''})|nl2br|raw }}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

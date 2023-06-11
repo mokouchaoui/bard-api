@@ -1,0 +1,18 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+
+# config/routes.yaml
+
+
+app_keyboard:
+    path: /
+    controller: App\Controller\KeyboardController::index
+
+app_keyboard_success:
+    path: /keyboard/success
+    controller: App\Controller\KeyboardController::success
+
+keyboard_success:
+  path: /keyboard/success
+  controller: App\Controller\KeyboardController::success
